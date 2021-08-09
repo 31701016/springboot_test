@@ -24,6 +24,9 @@ public class userServiceImpl implements userService {
 
     @Override
     public void setUser(String name, String password) {
-        userDao.setUser(name,password);
+        if(name.equals(null)&&password.equals(null)){
+            userDao.setUser(name,password);
+        }
+
     }
 }
