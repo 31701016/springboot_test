@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.test.dao.userDao">
+
+    <resultMap type="com.example.test.bean.userBean" id="User2">
+        <!-- 主键必须用id标签映射，其他的用非集合用result映射 集合类用collection映射 -->
+        <!-- column为数据库字段名,property为实体类属性名 -->
+        <id column="user_id" property="id" />
+        <result column="user_name" property="name" />
+        <result column="user_password" property="password"/>
+    </resultMap>
+
+    <select id="getInfo" parameterType="String" resultMap="User2">
+		SELECT * FROM user WHERE user_name = #{name} AND user_password = #{password}
+	</select>
+
+    <select id="selUser" parameterType="int" resultMap="User2">
+        select * from user where user_id = #{id}
+    </select>
+
+    <insert id="setUser" parameterType="String">
+        INSERT into user(user_name,user_password) value (#{name},#{password})
+    </insert>
+
+</mapper>
