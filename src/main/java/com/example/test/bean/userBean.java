@@ -3,7 +3,7 @@ package com.example.test.bean;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+//new
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
