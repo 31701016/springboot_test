@@ -14,6 +14,9 @@ public class userServiceImpl implements userService {
 
     @Override
     public userBean loginIn(String name, String password){
+        if(name.equals(null)||name.equals(null)){
+            return null;
+        }
         return userDao.getInfo(name,password);
     }
 
